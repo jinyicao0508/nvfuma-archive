@@ -1,0 +1,381 @@
+import { useState } from "react";
+
+const groups = [
+  {
+    id: "term",
+    label: "用語",
+    items: [
+      {
+        id: "juzong",
+        title: "剧种",
+        reading: "jùzhǒng ／ 劇種",
+        badge: "演劇ジャンルの制度的カテゴリー",
+        body:
+          "中国伝統演劇のジャンルのカテゴリー。京劇・越劇・黄梅戯など、固有の地域的背景・音楽様式（声腔）・レパートリーを持つとされる単位です。ただし、この制度的カテゴリーは自然に発生したものではなく、1951年「五五指示」に基づく戯曲改革のなかで、国家が統一名称・専門劇団・育成制度・代表演目を付与することによって制度化されたものです。",
+        relation:
+          "「黄梅戯」というジャンルそのものが、1953年に安徽省黄梅戯劇団が設立されるまで、「黄梅調」「採茶戯」「怀腔」など複数の名称が並存していました。黄梅戯という剧种は、国家の制度化行為なしには存在し得ませんでした。",
+      },
+      {
+        id: "tigang",
+        title: "提纲戏",
+        reading: "tígāng xì ／ 提綱劇",
+        badge: "即興・口伝の民間演劇形式",
+        body:
+          "完全な台本を持たない民間演劇の形式。演者は大まかな筋書き（「提綱」＝骨格）に沿って即興で演じ、知識は文字ではなく身体を通じた口伝で受け継がれます。上演ごとに内容が異なり、固定された「原本」は存在しません。識字率が極めて低かった農村社会に固有の形態でした（1949年の中国農村文盲率は約80%）。",
+        relation:
+          "原本《双救主》はこの提綱戯でした。左四和の手書き写本は「確定された原本」ではなく、ある一回の記録の痕跡にすぎません。「古典」の起源として想定されるような安定したテキストは、そもそも存在しなかったのです。",
+      },
+      {
+        id: "wuwu",
+        title: "五五指示",
+        reading: "wǔwǔ zhǐshì",
+        badge: "1951年 戯曲改革の基本政策",
+        body:
+          "1951年5月5日、政務院が発布した「戯曲改革工作に関する指示」。新中国の戯曲改革の基本方針を定めました。三本柱は「改戯」（台本・舞台からの不適切な要素の削除）・「改人」（芸人の思想改造）・「改制」（旧来の劇団制度の廃止）。改造の対象として「その土地で民衆への影響が最も大きい剧种」を選ぶよう求めました。",
+        relation:
+          "《女駙馬》の改編は「改戯」の典型例です。多妻制結末の削除、女性主体性の強化、民間痕跡の除去は、この論理に直接対応します。左四和の追放は「改制」の帰結でもありました。",
+      },
+      {
+        id: "dehistory",
+        title: "去历史化",
+        reading: "qù lìshǐ huà ／ de-historicization",
+        badge: "本発表の中心概念",
+        body:
+          "作品が形成される過程にあった具体的な人物・出来事・偶然性が体系的に覆い隠され、その代わりに、自然で連続的で自明であるかのような「伝統」の姿が立ち現れるプロセス。フーコーの言説分析（権力が「自然」を生産する仕組み）、ホブズボームの「伝統の創造（Invention of Tradition）」に連なる概念です。",
+        relation:
+          "古典化の機制は、起源の忘却を生み出します。《女駙馬》では、左四和・王兆乾・映画化の偶然性が次々に消され、「黄梅戯の古典」という去历史化された形象が残りました。最も隠微な働きは、抹消ではなく、覆い隠すことです。",
+      },
+    ],
+  },
+  {
+    id: "bg",
+    label: "時代背景",
+    items: [
+      {
+        id: "yanan",
+        title: "延安文芸座談会講話",
+        reading: "1942年",
+        badge: "戯曲改革の理論的原点",
+        body:
+          "毛沢東が1942年に行った文芸政策の基本講話。文芸は政治に従属し、労農兵に奉仕すべきとされ、「どの山ではどの歌を歌うか」「古い瓶に新しい酒を盛る」——民衆になじみのある旧形式を用いて、新しい政治的内容を盛る——という方針が示されました。1949年以降の戯曲改革の理論的原点です。",
+        relation:
+          "王兆乾が黄梅調を「保存すべき遺産」ではなく「改造し利用すべき形式」として捉えた発想は、この講話に由来します。",
+      },
+      {
+        id: "marriage",
+        title: "新婚姻法",
+        reading: "1950年",
+        badge: "一夫一妻制を定めた基本法",
+        body:
+          "中華人民共和国最初の基本法の一つ。一夫一妻制を定め、強制婚・売買婚・一夫多妻を禁じ、婚姻の自由と男女平等を掲げました。戯曲改革は、この新法を民衆に浸透させる宣伝媒体としても用いられました。",
+        relation:
+          "《女駙馬》原本の一夫多妻的結末（馮素珍＝二房夫人、春紅＝三房夫人）が一夫一妻に書き換えられたのは、この法の原則への直接的な対応です。黄梅戯映画《天仙配》（1955）も新婚姻法の宣伝作品でした。",
+      },
+      {
+        id: "antirightist",
+        title: "反右派闘争",
+        reading: "1957年",
+        badge: "知識人の大量摘発",
+        body:
+          "共産党への批判を行った知識人・幹部を「右派分子」として大量に摘発・処分した政治運動。全国で数十万人が職を追われ、農村送りや投獄の対象となりました。",
+        relation:
+          "原本《双救挙》を提供した老芸人・左四和も、この運動のなかで「自首分子」と認定され、劇団から追放されました。知識（原本）の国家への移譲は、その持ち主が体制から排除されるのと同じ瞬間に起こったのです。",
+      },
+      {
+        id: "leap",
+        title: "大躍進",
+        reading: "1958〜1960年",
+        badge: "急進的な動員運動",
+        body:
+          "毛沢東が主導した急進的な経済・社会動員運動。「衛星を打ち上げる（放衛星）」という誇大なスローガンのもと、各分野で非現実的なノルマと突貫作業が常態化しました。文芸界にも「躍進計画」が課されました。",
+        relation:
+          "《女駙馬》が王兆乾によって約一週間で急造されたのも、この政治的圧力下のことでした。彼自身が歌詞の粗さを認めています。1959年の映画化も、大躍進期の行政的偶然のなかで実現しました。",
+      },
+    ],
+  },
+  {
+    id: "people",
+    label: "人物",
+    items: [
+      {
+        id: "zuosihe",
+        title: "左四和",
+        reading: "さ・しわ",
+        badge: "原本提供者｜1957年 劇団追放",
+        body:
+          "安徽省潜山五廟の出身。民国期、岳西の黄梅戯班社「良友班」の学徒で、丫鬟・春紅の役を演じていました。班主・張廷翰から伝わった提綱戯《双救挙》の手抄本を保持していました。1957年、反右派闘争で「自首分子」とされ劇団を追われる際、その手抄本を王兆乾に贈りました。",
+        relation:
+          "《女駙馬》の原本提供者でありながら、1958年以降の記録からその名は消えていきます。本発表が出発点とする「消えた名前」です。",
+      },
+      {
+        id: "wangzhaoqian",
+        title: "王兆乾",
+        reading: "おう・ちょうけん｜1928〜2006",
+        badge: "最初の改編者",
+        body:
+          "山東省出身の音楽家・革命文工団員。1947年、大別山の土地改革のなかで黄梅調に接し、延安路線に基づいて改造を志します。左四和から得た《双救挙》を1958年に改編し、《女駙馬》と名づけた最初の改編者です。しかし曽希聖の介入後に発言権を失い、署名も削除されました。",
+        relation:
+          "彼の回想文「左四和と《女駙馬》」「《天仙配》と《女駙馬》の発掘と改編」（『黄梅戯芸術』）は、本発表の最も重要な一次資料です。",
+      },
+      {
+        id: "yanfengying",
+        title: "厳鳳英",
+        reading: "げん・ほうえい｜1930〜1968",
+        badge: "初代・映画版 馮素珍役",
+        body:
+          "黄梅戯を代表する女優。《女駙馬》の初演、および1959年映画版で、主役・馮素珍を演じた、まさにその人です。今日《女駙馬》とともに想起される顔は、彼女の顔にほかなりません。民間芸人から国家劇団に入り、受賞・映画・入党・全国労働模範と上りつめました。しかし1968年、文化大革命のさなか「封建・資本主義・修正主義の妖婦」として迫害され、自ら命を絶ちます。その遺体は「スパイの無線機」を探す名目で解剖されました。",
+        relation:
+          "国家が「古典」を構築するために必要とし、そして同じ論理で滅ぼした人物。原本を提供して消えた左四和と、経典の顔となって滅ぼされた厳鳳英は、同じ機制の両端にあります。",
+      },
+      {
+        id: "luhongfei",
+        title: "陸洪非",
+        reading: "りく・こうひ｜1923〜2007",
+        badge: "1959年映画版 脚本",
+        body:
+          "劇作家、安徽省黄梅戯研究の中心人物。1959年、王兆乾らの改本をさらに整理し、映画版の脚本を担当しました。現行の韓再芬版に至るまで、演職員表に名が残るのは彼です。",
+        relation:
+          "左四和・王兆乾が消えていくなかで、唯一残った名。それは最も貢献した人ではなく、省の劇団中枢という制度的位置が最も安定していた人の名でした——本発表の論点を象徴しています。",
+      },
+      {
+        id: "zengxisheng",
+        title: "曽希聖",
+        reading: "そう・きせい｜1904〜1968",
+        badge: "安徽省委第一書記",
+        body:
+          "安徽省の最高指導者。《女駙馬》の改編に直接介入し、展演を観たあと、公主の嫁ぎ先として馮益民という人物を加えるよう指示しました。",
+        relation:
+          "国家権力が文本の内容に——婚姻構造の改変というかたちで——直接介入した、具体的な実例です。",
+      },
+      {
+        id: "keqingshi",
+        title: "柯慶施",
+        reading: "か・けいし｜1902〜1965",
+        badge: "華東局第一書記",
+        body:
+          "毛沢東との安徽視察の際、上海電影製片廠に映画撮影を指示しました。その対象は本来、大躍進を題材とした現代神話劇でしたが、上海側が撮影不可能と判断したため、代替として《女駙馬》が浮上しました。",
+        relation:
+          "《女駙馬》映画化という、経典化の決定的契機を、偶然に開いた人物です。",
+      },
+    ],
+  },
+  {
+    id: "synopsis",
+    label: "あらすじ",
+    items: [
+      {
+        id: "shuangjiuju",
+        title: "双救挙",
+        reading: "そうきゅうきょ",
+        badge: "原本・提綱戯",
+        body:
+          "李兆廷と馮素珍は許婚の仲だが、李家が没落すると、馮父は婚約を破棄し、娘を富裕な家に嫁がせようとする。馮素珍が獄中の李兆廷を助けようとするなか、丫鬟・春紅と獄卒・李漢臣の助力で事態が動く（「双救」＝二人が救う、が題名の由来）。馮素珍は男装して科挙に挑み状元となり、女駙馬として公主に召される。洞房で正体を明かし、金殿で皇帝に陳情して冤罪を晴らす。結末では皇帝の勅命により、李兆廷は皇墻に封じられ、馮素珍は二房夫人、功のあった春紅は三房夫人となる——一夫多妻制を前提とした大団円。",
+        relation:
+          "馮素珍の行動はかなり受動的で、計略の多くは春紅が立てる。程式化した自己紹介・対句・唱腔の堆積など、口承の提綱戯の痕跡が色濃く残る。",
+      },
+      {
+        id: "nvfuma",
+        title: "女駙馬",
+        reading: "じょふば",
+        badge: "改編版（1958／1959）",
+        body:
+          "骨格は原本を継ぐ——破婚・投獄・男装・状元・洞房・金殿・冤罪を晴らす——が、要所が体系的に書き換えられている。馮素珍は受動的な存在から、自ら行動し自らを救う、能動的な女性へと造形しなおされる。結末の一夫多妻は解体され、馮素珍と李兆廷は一対一で結ばれ、公主は新たに加えられた馮益民（曽希聖の指示で追加）に嫁ぐ——新婚姻法の一夫一妻原則に対応する。民間表演の痕跡は削られ、緊密な近代演劇の構造へ整えられる。題名も、口承の《双救挙》から、書面的な《女駙馬》へ。",
+        relation:
+          "脆弱な口承の提綱戯が、特定のイデオロギーに適合した「古典」へと作り変えられた——その全過程の縮図です。",
+      },
+    ],
+  },
+];
+
+export default function App() {
+  const [groupId, setGroupId] = useState("term");
+  const [itemIds, setItemIds] = useState(() =>
+    Object.fromEntries(groups.map((g) => [g.id, g.items[0].id]))
+  );
+
+  const group = groups.find((g) => g.id === groupId);
+  const item = group.items.find((it) => it.id === itemIds[groupId]);
+
+  const selectItem = (id) => setItemIds((prev) => ({ ...prev, [groupId]: id }));
+
+  const serif =
+    "'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP', 'MS Mincho', Georgia, serif";
+
+  return (
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "#f5f0e8",
+        color: "#1a1208",
+        fontFamily: serif,
+      }}
+    >
+      {/* Header */}
+      <div style={{ background: "#1a1208", color: "#f5f0e8", padding: "18px 22px 16px" }}>
+        <div
+          style={{
+            fontSize: "10px",
+            letterSpacing: "0.18em",
+            color: "#9a8a6a",
+            marginBottom: "7px",
+            textTransform: "uppercase",
+          }}
+        >
+          日本演劇学学会 2026年大会 ｜ 補足資料
+        </div>
+        <div style={{ fontSize: "13px", color: "#c8b890", lineHeight: 1.6 }}>
+          黄梅戯《女駙馬》の成立過程
+        </div>
+        <div style={{ marginTop: "8px", fontSize: "10px", color: "#6a5a40", letterSpacing: "0.1em" }}>
+          発表者：曹瑾儀
+        </div>
+      </div>
+
+      {/* Group tabs (sticky) */}
+      <div
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 10,
+          background: "#ede8df",
+          borderBottom: "1px solid #c8bfae",
+          display: "flex",
+        }}
+      >
+        {groups.map((g) => {
+          const active = g.id === groupId;
+          return (
+            <button
+              key={g.id}
+              onClick={() => setGroupId(g.id)}
+              style={{
+                flex: 1,
+                padding: "13px 6px",
+                border: "none",
+                background: active ? "#f5f0e8" : "transparent",
+                cursor: "pointer",
+                fontSize: "14px",
+                fontWeight: active ? 700 : 400,
+                color: active ? "#8c1c13" : "#6b5744",
+                borderBottom: active ? "3px solid #8c1c13" : "3px solid transparent",
+                fontFamily: serif,
+              }}
+            >
+              {g.label}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Item pills */}
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "8px",
+          padding: "16px 18px 4px",
+        }}
+      >
+        {group.items.map((it) => {
+          const active = it.id === item.id;
+          return (
+            <button
+              key={it.id}
+              onClick={() => selectItem(it.id)}
+              style={{
+                padding: "7px 14px",
+                border: active ? "1px solid #8c1c13" : "1px solid #cdc2af",
+                background: active ? "#8c1c13" : "#fbf8f2",
+                color: active ? "#f5f0e8" : "#5a4a38",
+                cursor: "pointer",
+                fontSize: "14px",
+                fontFamily: serif,
+                borderRadius: "2px",
+              }}
+            >
+              {it.title}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Content */}
+      <div style={{ padding: "16px 18px 44px", maxWidth: "680px", margin: "0 auto" }}>
+        <div style={{ paddingBottom: "18px", borderBottom: "1px solid #d4c9b5", marginBottom: "20px" }}>
+          <div style={{ fontSize: "44px", fontWeight: 700, lineHeight: 1.05, marginBottom: "8px" }}>
+            {item.title}
+          </div>
+          <div style={{ fontSize: "14px", color: "#8c1c13", fontStyle: "italic", marginBottom: "10px" }}>
+            {item.reading}
+          </div>
+          <div
+            style={{
+              display: "inline-block",
+              background: "#1a1208",
+              color: "#f5f0e8",
+              padding: "4px 13px",
+              fontSize: "12px",
+              letterSpacing: "0.05em",
+            }}
+          >
+            {item.badge}
+          </div>
+        </div>
+
+        <div
+          style={{
+            fontSize: "14.5px",
+            lineHeight: 1.95,
+            color: "#2a1e14",
+            marginBottom: "18px",
+          }}
+        >
+          {item.body}
+        </div>
+
+        {item.relation && (
+          <div
+            style={{
+              background: "#ffffff",
+              border: "1px solid #8c1c13",
+              borderLeft: "5px solid #8c1c13",
+              padding: "16px 18px",
+              boxShadow: "0 2px 8px rgba(140,28,19,0.07)",
+            }}
+          >
+            <div
+              style={{
+                fontSize: "10px",
+                letterSpacing: "0.18em",
+                color: "#8c1c13",
+                fontWeight: 600,
+                marginBottom: "9px",
+              }}
+            >
+              ◀ 本発表との関連
+            </div>
+            <div style={{ fontSize: "14px", lineHeight: 1.9, color: "#2a1e14" }}>
+              {item.relation}
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Footer */}
+      <div
+        style={{
+          borderTop: "1px solid #d4c9b5",
+          padding: "16px 22px",
+          textAlign: "center",
+          background: "#ede8df",
+        }}
+      >
+        <div style={{ fontSize: "10px", color: "#8b7355", letterSpacing: "0.12em", lineHeight: 1.8 }}>
+          曹瑾儀　日本演劇学学会 2026年大会
+          <br />
+          <span style={{ color: "#b0a090" }}>「古典と現代の往還」セッション</span>
+        </div>
+      </div>
+    </div>
+  );
+}
