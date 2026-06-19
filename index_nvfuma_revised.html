@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>黄梅戯《女駙馬》の成立過程｜補足資料</title>
+  <style>
+    :root{
+      --bg:#f5f0e8; --paper:#fbf8f2; --ink:#1a1208; --muted:#6b5744; --line:#c8bfae; --red:#8c1c13; --gold:#c8b890;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP','MS Mincho',Georgia,serif;}
+    header{background:var(--ink);color:var(--bg);padding:18px 22px 16px;}
+    .eyebrow{font-size:10px;letter-spacing:.18em;color:#9a8a6a;margin-bottom:7px;text-transform:uppercase;}
+    header h1{font-size:18px;line-height:1.55;margin:0;color:#f5f0e8;font-weight:600;}
+    .speaker{margin-top:8px;font-size:10px;color:#b8aa8a;letter-spacing:.1em;}
+    .tabs{position:sticky;top:0;z-index:10;background:#ede8df;border-bottom:1px solid var(--line);display:flex;}
+    .tabs button{flex:1;padding:13px 6px;border:none;background:transparent;cursor:pointer;font-size:14px;color:var(--muted);border-bottom:3px solid transparent;font-family:inherit;}
+    .tabs button.active{background:var(--bg);font-weight:700;color:var(--red);border-bottom-color:var(--red);}
+    .pills{display:flex;flex-wrap:wrap;gap:8px;padding:16px 18px 4px;max-width:900px;margin:0 auto;}
+    .pills button{padding:7px 14px;border:1px solid #cdc2af;background:var(--paper);color:#5a4a38;cursor:pointer;font-size:14px;font-family:inherit;border-radius:2px;}
+    .pills button.active{border-color:var(--red);background:var(--red);color:var(--bg);}
+    main{padding:16px 18px 44px;max-width:760px;margin:0 auto;}
+    .titlebox{padding-bottom:18px;border-bottom:1px solid #d4c9b5;margin-bottom:20px;}
+    #itemTitle{font-size:34px;font-weight:700;line-height:1.15;margin:0 0 8px;}
+    #reading{font-size:14px;color:var(--red);font-style:italic;margin-bottom:10px;}
+    #badge{display:inline-block;background:var(--ink);color:var(--bg);padding:4px 13px;font-size:12px;letter-spacing:.05em;}
+    #body{font-size:14.5px;line-height:1.95;color:#2a1e14;margin-bottom:18px;white-space:pre-wrap;}
+    .relation{background:white;border:1px solid var(--red);border-left:5px solid var(--red);padding:16px 18px;box-shadow:0 2px 8px rgba(140,28,19,.07);}
+    .rel-label{font-size:10px;letter-spacing:.18em;color:var(--red);font-weight:600;margin-bottom:9px;}
+    #relationText{font-size:14px;line-height:1.9;color:#2a1e14;white-space:pre-wrap;}
+    footer{border-top:1px solid #d4c9b5;padding:16px 22px;text-align:center;background:#ede8df;}
+    footer div{font-size:10px;color:#8b7355;letter-spacing:.12em;line-height:1.8;}
+    .hidden{display:none}
+    @media (max-width:520px){#itemTitle{font-size:30px}.tabs{overflow-x:auto}.tabs button{font-size:13px;min-width:86px}.pills{padding-left:12px;padding-right:12px}main{padding-left:14px;padding-right:14px}}
+  
+.topbtn{position:fixed;right:16px;bottom:18px;background:var(--red);color:var(--bg);border:none;padding:10px 12px;cursor:pointer;border-radius:4px;font-family:inherit;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">日本演劇学会 2026年大会 ｜ 補足資料</div>
+  <h1>黄梅戯《女駙馬》の成立過程</h1>
+  <div class="speaker">発表者：曹瑾儀</div>
+</header>
+<nav class="tabs" id="tabs"></nav>
+<section class="pills" id="pills"></section>
+<main>
+  <section class="titlebox">
+    <h2 id="itemTitle"></h2>
+    <div id="reading"></div>
+    <div id="badge"></div>
+  </section>
+  <section id="body"></section>
+  <section class="relation" id="relationBox">
+    <div class="rel-label">◀ 本発表との関連</div>
+    <div id="relationText"></div>
+  </section>
+</main>
+<footer>
+  <div>曹瑾儀　日本演劇学会 2026年大会<br><span style="color:#b0a090">「古典と現代の往還」セッション</span></div>
+</footer>
+<button class='topbtn' onclick='window.scrollTo({top:0,behavior:"smooth"})'>↑ TOP</button>
+<script>
+const groups = [
+  {id:'term', label:'用語', items:[
+    {id:'huangmeixi', title:'黄梅戯', reading:'こうばいぎ ／ huángméixì', badge:'本作の劇種｜全国五大劇種の一つ', body:'湖北・安徽省境の農村に発する採茶調・採茶戯を母体とする劇種。抒情的で平明な旋律を特徴とし、今日では京劇・越劇・評劇・豫劇と並ぶ「全国五大劇種」の一つに数えられる。ただしその地位は新しく、起源をめぐっても湖北黄梅県説と安徽省安慶（懐寧）説が併存して定まらない。もともとは官憲に上演を禁じられた周縁的な小戯にすぎず、「黄梅戯」という劇種としての輪郭は、1953年の劇団設立と国家的な制度化を経てはじめて与えられたものである。', relation:'本発表が問うのは、この「全国を代表する伝統劇種」という像そのものが、いつ・いかにして作られたのか、である。『女駙馬』はその劇種化の過程を象徴する作品にほかならない。'},
+    {id:'juzhong', title:'劇種', reading:'げきしゅ ／ jùzhǒng', badge:'演劇ジャンルの制度的カテゴリー', body:'中国伝統演劇のジャンル区分の単位。京劇・越劇・黄梅戯などのように、固有の地域的背景・音楽様式（声腔）・レパートリーを持つとされる。だがこの制度的カテゴリーは自然に発生したものではなく、1951年「五五指示」に基づく戯曲改革のなかで、国家が統一名称・専門劇団・育成制度・代表演目を付与することによって制度化されたものである。', relation:'「黄梅戯」という劇種そのものが、1953年に安徽省黄梅戯劇団が設立されるまで、「黄梅調」「採茶戯」「懐腔」など複数の名称のあいだで揺れていた。黄梅戯という劇種は、国家の制度化行為なしには存在し得なかった。'},
+    {id:'fuma', title:'駙馬', reading:'ふば ／ fùmǎ', badge:'題名の鍵となる語｜皇帝の婿', body:'皇帝の娘（公主）の夫を指す語。もとは漢代の官職「駙馬都尉」に由来し、後に公主の配偶者の通称となった。題名『女駙馬』は文字どおりには「女の駙馬」を意味する——主人公・馮素珍が男装して科挙に首席（状元）で合格し、その才を見込んだ皇帝によって公主の婿（駙馬）に選ばれてしまう、という転倒に由来する。', relation:'「女が駙馬になる」という設定の妙が題名に凝縮されている。なお口承の原作では題名が『双救主』『双救挙』であり、書面的・固定的な『女駙馬』という題はむしろ改編の産物である（→あらすじ）。'},
+    {id:'tigang', title:'提綱戯', reading:'ていこうぎ ／ tígāngxì', badge:'即興・口伝の民間演劇形式', body:'完全な台本を持たない民間演劇の形式。「幕表戯」とも呼ばれる。演者は大まかな筋書き（「提綱」＝骨格）に沿って即興で演じ、知識は文字ではなく身体を通じて口伝で受け継がれる。上演ごとに内容が異なり、固定された「原本」は存在しない。識字率の極めて低かった農村社会に固有の形態であった（1949年の中国農村文盲率は約80%）。', relation:'原作『双救主』はこの提綱戯であった。左四和の手書き写本も「確定された原本」ではなく、ある一回の記録の痕跡にすぎない。「古典」の起源として想定されるような安定したテキストは、そもそも存在しなかったのである。'},
+    {id:'wuwu', title:'五五指示', reading:'ごごしじ ／ wǔwǔ zhǐshì', badge:'1951年 戯曲改革の基本政策', body:'1951年5月5日、政務院が発布した「戯曲改革工作に関する指示」。新中国の戯曲改革の基本方針を定めた。三本柱は「改戯」（台本・舞台からの不適切な要素の削除）・「改人」（芸人の思想改造）・「改制」（旧来の劇団制度の廃止）である。改造の対象として「その土地で民衆への影響が最も大きい劇種」を選ぶよう求めた。', relation:'『女駙馬』の改編は「改戯」の典型例である。多妻制の結末の削除、女性主体性の強化、民間痕跡の除去は、この論理に直接対応する。左四和の追放は「改制」の帰結でもあった。'},
+    {id:'dehistory', title:'脱歴史化', reading:'だつれきしか ／ de-historicization', badge:'本発表の中心概念', body:'作品が形成される過程にあった具体的な人物・出来事・偶然性が体系的に覆い隠され、その代わりに、自然で連続的で自明であるかのような「伝統」の姿が立ち現れるプロセス。フーコーの言説分析（権力が「自然」を生産する仕組み）、ホブズボームの「伝統の創造（Invention of Tradition）」に連なる概念である。なお本発表でいう「経典化／古典化」とは、作品が権威ある「古典（経典）」として確立されていくこの過程を指す。', relation:'古典化の機制は、起源の忘却を生み出す。『女駙馬』では、左四和・王兆乾・映画化の偶然性が次々に消され、「黄梅戯の古典」という脱歴史化された形象が残った。最も隠微な働きは、抹消することではなく、覆い隠すことにある。'}
+  ]},
+  {id:'bg', label:'時代背景', items:[
+    {id:'yanan', title:'延安文芸座談会講話', reading:'1942年', badge:'戯曲改革の理論的原点', body:'毛沢東が1942年に行った文芸政策の基本講話。文芸は政治に従属し、労農兵に奉仕すべきものとされ、「どの山ではどの歌を歌うか」「古い瓶に新しい酒を盛る」——民衆になじみのある旧形式を用いて、新しい政治的内容を盛る——という方針が示された。1949年以降の戯曲改革の理論的原点である。', relation:'王兆乾が黄梅調を「保存すべき遺産」ではなく「改造し利用すべき形式」として捉えた発想は、この講話に由来する。'},
+    {id:'marriage', title:'新婚姻法', reading:'1950年', badge:'一夫一妻制を定めた基本法', body:'中華人民共和国最初の基本法の一つ（1950年公布）。一夫一妻制を定め、強制婚・売買婚・一夫多妻を禁じ、婚姻の自由と男女平等を掲げた。戯曲改革は、この新法を民衆に浸透させる宣伝媒体としても用いられた。', relation:'『女駙馬』原作の一夫多妻的な結末（馮素珍＝二房夫人、春紅＝三房夫人）が一夫一妻に書き換えられたのは、この法の原則への直接的な対応である。黄梅戯映画『天仙配』（1955）もまた新婚姻法の宣伝作品であった。'},
+    {id:'huadong', title:'華東会演', reading:'1952年', badge:'地方劇が国家舞台へ上る通路', body:'正式には華東区戯曲観摩演出大会。1952年、上海で開かれた地区規模の戯曲コンクールである。国家が設けた「会演（観摩演出）」制度は、無数の地方劇のなかから何を引き上げ、何を「優秀」と認定するかを国家が選別する場であり、地方の小劇が全国的地位へ上昇するための通路として機能した。', relation:'この大会で安徽省は黄梅戯と泗州戯を上海へ持参し、厳鳳英が予想外の喝采を浴びた。これを契機に黄梅戯は注目を集め、『天仙配』の受賞（1954）・映画化（1955）を経て「全国五大劇種」の一つへと昇格していく。後の『女駙馬』映画版の出演者の多くも、この会演の受賞者であった。'},
+    {id:'antirightist', title:'反右派闘争', reading:'1957年', badge:'知識人の大量摘発', body:'共産党への批判を行った知識人・幹部を「右派分子」として大量に摘発・処分した政治運動。全国で数十万人が職を追われ、農村送りや投獄の対象となった。', relation:'原作『双救挙』を提供した老芸人・左四和も、この運動のなかで「自首分子」と認定され、劇団から追放された。知識（原本）の国家への移譲は、その持ち主が体制から排除されるのと同じ瞬間に起こったのである。'},
+    {id:'leap', title:'大躍進', reading:'1958〜1960年', badge:'急進的な動員運動', body:'毛沢東が主導した急進的な経済・社会動員運動。「衛星を打ち上げる（放衛星）」という誇大なスローガンのもと、各分野で非現実的なノルマと突貫作業が常態化した。文芸界にも「躍進計画」が課された。', relation:'『女駙馬』が王兆乾によって約一週間で急造されたのも、この政治的圧力下のことであった。彼自身が歌詞の粗さを認めている。1959年の映画化も、大躍進期の行政的偶然のなかで実現した。'}
+  ]},
+  {id:'modern', label:'現代受容', items:[
+    {id:'chunwan', title:'春節聯歓晩会', reading:'しゅんせつれんかんばんかい｜略称：春晚', badge:'国家的な年越し特別番組（1983〜）', body:'中国中央電視台（CCTV）が大晦日に生放送する年越し特別番組。1983年に放送が始まり、十数億規模の視聴者を持つ、事実上の国家的統合儀礼である。一晩のうちに各種の戯曲・歌舞・コント等を集成し、何が「国民的」「伝統的」とされるかを国家が選別・提示する場でもある。', relation:'『女駙馬』の選段は四十年以上にわたり春晚にくり返し登場している——1984・1997・2005・2017・2021・2026年。いずれも独立した上演ではなく、複数劇種を連ねる「戯曲聯唱」（メドレー）の一席として、京劇・崑曲と並び「黄梅戯の代表」に置かれてきた。本作はもはや一つの劇を超え、黄梅戯そのものを代理する「符号」として常識的に引用される。ただしこの遍在の多くは「国家による伝達」（春晚＝国家放送）の産物である。'},
+    {id:'classic1999', title:'建国五十周年経典電影', reading:'1999年｜国家による「経典」認定', badge:'「経典」は認定される', body:'1999年、建国五十周年に際し、中央宣伝部・文化部・国家広播電影電視総局・新聞出版総署・中国文聯・中国作家協会の六部門が、『女駙馬』（1959年映画版）を「建国五十周年の経典電影」に認定した。「経典（古典）」が作品の内在的価値から自然に生じるのではなく、国家機関の事後的な認定行為によって付与されるものであることを、この出来事自体が示している。', relation:'同じ経路を辿った作品は少なくない。評劇映画『劉巧児』（1956、新鳳霞主演）は、もともと固定台本を持たぬ提綱戯（幕表戯）であったものを専門の文芸工作者が「芸術精品」に整え、新婚姻法（婚姻自主）を宣伝する「経典」へと作り変えたもので、『女駙馬』とほぼ同型の事例である。黄梅戯映画『天仙配』（1955、胡玉庭の口述本を陸洪非が統編）、越劇映画『梁山伯と祝英台』（1954、新中国初のカラー長編）も、民間・口承の素材を戯曲改革期に改造し、国家が「経典」として再認定したものにほかならない。「経典の一覧」とは、この装置の作動の記録である。'}
+  ]},
+  {id:'people', label:'人物', items:[
+    {id:'zuosihe', title:'左四和', reading:'さ・しわ', badge:'原本提供者｜1957年 劇団追放', body:'安徽省潜山五廟の出身。民国期、潜山の黄梅戯班社「良友班」の学徒で、丫鬟・春紅の役を演じていた。班主・張廷翰から伝わった提綱戯『双救挙』の手抄本を保持していた。1957年、反右派闘争で「自首分子」とされ劇団を追われる際、その手抄本を含む自筆の三冊の灯会本を王兆乾に贈った。', relation:'『女駙馬』の原本提供者でありながら、1958年以降の記録からその名は消えていく。本発表が出発点とする「消えた名前」である。なお『安徽省黄梅戯伝統劇目彙編』第七集には「左世和 収集」と記される——「四」と「世」は潜山—黄梅方言で同音であり、左世和と左四和は同一人物である。固有名の表記の揺れそのものが、この知識が口承に属することの証左でもある。'},
+    {id:'wangzhaoqian', title:'王兆乾', reading:'おう・ちょうけん｜1928〜2006', badge:'最初の改編者', body:'山東省出身の音楽家・革命文工団員。延安路線が生んだ「新文芸工作者」（民間形式を「保存」する者ではなく、「改造し利用する」文化幹部）の典型である。1947年、大別山の土地改革のなかで黄梅調に接し、その路線に基づいて改造を志す。左四和から得た『双救挙』を1958年に改編し、『女駙馬』と名づけた最初の改編者である。しかし曽希聖の介入後に発言権を失い、署名も削除された。', relation:'彼の回想文「左四和と『女駙馬』」（1986）「『天仙配』と『女駙馬』の発掘と改編」（2000、いずれも『黄梅戯芸術』）は、本発表の最も重要な一次資料である。同時に、失った署名権をめぐる当事者でもあり、その回想は一次史料と突き合わせて批判的に読む必要がある。'},
+    {id:'yanfengying', title:'厳鳳英', reading:'げん・ほうえい｜1930〜1968', badge:'1959年映画版 馮素珍役', body:'黄梅戯を代表する女優。1959年映画版で主役・馮素珍を演じた、まさにその人である。今日『女駙馬』とともに想起される顔は、彼女の顔にほかならない。1949年に安慶へ招かれ、民間芸人から国家劇団へと入り、受賞・映画・入党・全国労働模範と上りつめた。しかし1968年、文化大革命のさなか「封建・資本主義・修正主義の妖婦」として迫害され、自ら命を絶つ。その遺体は「スパイの無線機」を探す名目で解剖された。', relation:'国家が「古典」を構築するために必要とし、そして同じ論理で滅ぼした人物である。原本を提供して消えた左四和と、経典の顔となって滅ぼされた厳鳳英は、同じ機制の両端にある。'},
+    {id:'luhongfei', title:'陸洪非', reading:'りく・こうひ｜1923〜2007', badge:'1959年映画版 脚本', body:'劇作家、安徽省黄梅戯研究の中心人物。胡玉庭の口述本をもとに『天仙配』を統編した人物でもある。1959年には王兆乾らの改本をさらに整理し、『女駙馬』映画版の脚本を担当した。現行の韓再芬版に至るまで、演職員表に名が残るのは彼である。', relation:'左四和・王兆乾が消えていくなかで、唯一残った名。それは最も貢献した人ではなく、省の劇団中枢という制度的位置が最も安定していた人の名であった——本発表の論点を象徴している。'},
+    {id:'zengxisheng', title:'曽希聖', reading:'そう・きせい｜1904〜1968', badge:'安徽省委第一書記', body:'安徽省の最高指導者。『女駙馬』の改編に直接介入し、展演を観たあと、公主の嫁ぎ先として馮益民という人物を加えるよう指示した。さらに作品を省の劇団へ移管させ、以後、王兆乾は発言権を失う。', relation:'国家権力が作品の内容に——婚姻構造の改変というかたちで——直接介入した、具体的な実例である。'},
+    {id:'keqingshi', title:'柯慶施', reading:'か・けいし｜1902〜1965', badge:'華東局第一書記', body:'華東局の最高指導者。毛沢東との安徽視察の際、上海電影製片廠に映画撮影を指示した。その対象は本来、大躍進を題材とした現代神話劇であったが、上海側が撮影不可能と判断したため、代替として『女駙馬』が浮上した。', relation:'『女駙馬』映画化という、経典化の決定的契機を、偶然に開いた人物である。'}
+  ]},
+  {id:'synopsis', label:'あらすじ', items:[
+    {id:'shuangjiuju', title:'双救挙', reading:'そうきゅうきょ', badge:'原作・提綱戯', body:'李兆廷と馮素珍は許婚の仲だが、李家が没落すると、馮父は婚約を破棄し、娘を富裕な家に嫁がせようとする。馮素珍が獄中の李兆廷を助けようとするなか、丫鬟・春紅と獄卒・李漢臣の助力で事態が動く（「双救」＝二人が救う、が題名の由来）。馮素珍は男装して科挙に挑み状元となり、女駙馬として公主に召される。洞房で正体を明かし、金殿で皇帝に陳情して冤罪を晴らす。結末では皇帝の勅命により、李兆廷は皇墻に封じられ、馮素珍は二房夫人、功のあった春紅は三房夫人となる——一夫多妻制を前提とした大団円である。', relation:'馮素珍の行動はかなり受動的で、計略の多くは春紅が立てる。程式化した自己紹介・対句・唱腔の堆積など、口承の提綱戯の痕跡が色濃く残る。なお同じ口承の題が、『安徽省黄梅戯伝統劇目彙編』（地元の記録）では『双救主』、王兆乾（山東出身）の聴音による表記では『双救挙』と、二様に書き留められた。母語話者でなければ聞き分けにくい音であり、この表記の揺れ自体が本作の口承性を裏づける。'},
+    {id:'nvfuma', title:'女駙馬', reading:'じょふば', badge:'改編版（1958／1959）', body:'骨格は原作を継ぐ——破婚・投獄・男装・状元・洞房・金殿・冤罪を晴らす——が、要所が体系的に書き換えられている。馮素珍は受動的な存在から、自ら行動し自らを救う、能動的な女性へと造形しなおされる。結末の一夫多妻は解体され、馮素珍と李兆廷は一対一で結ばれ、公主は新たに加えられた馮益民（曽希聖の指示で追加）に嫁ぐ——新婚姻法の一夫一妻原則に対応する。民間表演の痕跡は削られ、緊密な近代演劇の構造へ整えられる。題名も、口承の『双救主／双救挙』から、書面的な『女駙馬』へと置き換えられた。', relation:'脆弱な口承の提綱戯が、特定のイデオロギーに適合した「古典」へと作り変えられた——その全過程の縮図である。'},
+    {id:'tianxianpei', title:'天仙配', reading:'てんせんぱい', badge:'黄梅戯映画（1955）｜姉妹作', body:'黄梅戯のもう一つの代表作（別名『槐蔭記』）。天界の七仙女が、父の埋葬のため身を売った貧しい孝子・董永の境遇に心を動かされ、自ら下界へ降りて彼と結ばれる。槐蔭樹（老木）が仲立ちとなり、二人は労働をともにして睦まじく暮らすが、玉帝の命により仙女は天へ引き戻される——身分を超えた自由な結びつきを描く。陸洪非が胡玉庭の口述本をもとに統編し（1953）、厳鳳英主演で受賞（1954）・映画化（1955）された。', relation:'『女駙馬』と同じ劇種・同じ女優・同じ改編経路（口述本→専門家による統編→映画→全国化）を辿った作品である。封建的婚姻への対抗と自由恋愛という主題は新婚姻法の言説に直接対応し、本作の映画化（観客一億人超）が黄梅戯を一挙に全国的存在へ押し上げた。『女駙馬』の成立は、この姉妹作の成功という土台の上にある。'}
+  ]}
+];
+let groupId = 'term';
+const itemIds = Object.fromEntries(groups.map(g => [g.id, g.items[0].id]));
+const tabs = document.getElementById('tabs');
+const pills = document.getElementById('pills');
+function renderTabs(){tabs.innerHTML='';groups.forEach(g=>{const b=document.createElement('button');b.textContent=g.label;b.className=g.id===groupId?'active':'';b.onclick=()=>{groupId=g.id;render();};tabs.appendChild(b);});}
+function renderPills(group,item){pills.innerHTML='';group.items.forEach(it=>{const b=document.createElement('button');b.textContent=it.title;b.className=it.id===item.id?'active':'';b.onclick=()=>{itemIds[groupId]=it.id;render();};pills.appendChild(b);});}
+function renderContent(item){document.getElementById('itemTitle').textContent=item.title;document.getElementById('reading').textContent=item.reading;document.getElementById('badge').textContent=item.badge;document.getElementById('body').textContent=item.body;const box=document.getElementById('relationBox');if(item.relation){box.classList.remove('hidden');document.getElementById('relationText').textContent=item.relation;}else{box.classList.add('hidden');}}
+function render(){const group=groups.find(g=>g.id===groupId);const item=group.items.find(it=>it.id===itemIds[groupId]);renderTabs();renderPills(group,item);renderContent(item);}
+render();
+</script>
+</body>
+</html>
